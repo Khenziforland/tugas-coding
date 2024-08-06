@@ -26,5 +26,50 @@
                 </div>
             </a>
         </li>
+
+        <li class="menu-item {{ request()->is('dashboard/nomor-2') ? 'active' : '' }}">
+            <a href="{{ url('dashboard/nomor-2') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Nomor 2">
+                    Nomor 2
+                </div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('dashboard/nomor-3') ? 'active' : '' }}">
+            <a href="{{ url('dashboard/nomor-3') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Nomor 3">
+                    Nomor 3
+                </div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('dashboard/nomor-4') ? 'active' : '' }}">
+            <a href="{{ url('dashboard/nomor-4') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Nomor 4">
+                    Nomor 4
+                </div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('dashboard/nomor-5') ? 'active' : '' }}">
+            <a href="{{ url('dashboard/nomor-5') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Nomor 5">
+                    Nomor 5
+                </div>
+            </a>
+        </li>
+
+        <li class="menu-item {{ request()->is('dashboard/nomor-6') ? 'active' : '' }}">
+            <a href="{{ url('dashboard/nomor-6') }}" class="menu-link">
+                <i class="menu-icon tf-icons ti ti-smart-home"></i>
+                <div data-i18n="Nomor 6">
+                    Nomor 6
+                </div>
+            </a>
+        </li>
     </ul>
 </aside>
