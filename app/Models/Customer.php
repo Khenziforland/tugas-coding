@@ -2,17 +2,21 @@
 
 namespace App\Models;
 
-use App\Filters\BarangFilter;
-use App\Helpers\HashHelper;
-use App\Traits\PaginateData;
-use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Barang extends Model
+use EloquentFilter\Filterable;
+
+use App\Filters\CustomerFilter;
+
+use App\Helpers\HashHelper;
+
+use App\Traits\PaginateData;
+
+class Customer extends Model
 {
-    use Filterable, HasFactory, SoftDeletes, PaginateData;
+    use Filterable, HasFactory, PaginateData, SoftDeletes;
 
     /*
     |-----------------------------------------------------------------------------
@@ -39,14 +43,6 @@ class Barang extends Model
         'hash_id',
     ];
 
-    /**
-     ** The relationships that should always be loaded.
-     *
-     * @var array
-     */
-    protected $with = [];
-
-
     /*
     |-----------------------------------------------------------------------------
     | HOOK METHOD(s)
@@ -61,7 +57,7 @@ class Barang extends Model
      */
     public function modelFilter()
     {
-        return $this->provideFilter(BarangFilter::class);
+        return $this->provideFilter(CustomerFilter::class);
     }
 
     /**
@@ -74,7 +70,6 @@ class Barang extends Model
         return HashHelper::encrypt($this->id);
     }
 
-    
     /*
     |-----------------------------------------------------------------------------
     | STATIC METHOD(s)
@@ -82,14 +77,12 @@ class Barang extends Model
     | // ! write your static method(s) below, to maintain code readability
     */
 
-
     /*
     |-----------------------------------------------------------------------------
     | SCOPED METHOD(s)
     | ----------------------------------------------------------------------------
     | // ! write your static method(s) below, to maintain code readability
     */
-
 
     /*
     |-----------------------------------------------------------------------------
