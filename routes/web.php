@@ -18,6 +18,6 @@ Route::get('/', function () {
 require __DIR__ . '/web/dashboard/number_1.php';
 require __DIR__ . '/web/dashboard/number_2.php';
 require __DIR__ . '/web/dashboard/number_3.php';
-// require __DIR__ . '/web/dashboard/number_4.php';
+require __DIR__ . '/web/dashboard/number_4.php';
 require __DIR__ . '/web/dashboard/number_5.php';
 require __DIR__ . '/web/dashboard/number_6.php';
