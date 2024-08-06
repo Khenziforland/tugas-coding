@@ -28,9 +28,10 @@ class Number4Service
             ->groupBy('customer_id')
             ->get();
 
-        dd($transaction);
-
         $transaction = Datatables::of($transaction)
+            ->addColumn('id', function ($row) {
+                return $row->customer_id;
+            })
             ->addColumn('customerNameCustom', function ($row) {
                 $customer = Customer::find($row->customer_id);
 
