@@ -1,0 +1,30 @@
+.blockMsg {
+    background-color: transparent !important;
+    border: 0 !important;
+    width: 100% !important;
+}
+
+.blockUiSpinner {
+    width: 15px;
+    height: 15px;
+}
+
+.blockUiMessage {
+    margin-left: 10px !important;
+}
+
+.form-title {
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.img-attachment {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.slider-custom {
+    width: 100% !important;
+    max-height: 500px !important;
+}
