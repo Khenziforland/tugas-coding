@@ -16,3 +16,5 @@ Route::get('/', function () {
 })->name('login');
 
 require __DIR__ . '/web/dashboard/number_1.php';
+require __DIR__ . '/web/dashboard/number_2.php';
+require __DIR__ . '/web/dashboard/number_3.php';

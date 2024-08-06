@@ -6,10 +6,10 @@ use App\Helpers\FormatterHelper;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Helpers\MessageHelper;
-use App\Models\Customer;
+
 use App\Models\Product;
 
-class Number1Service
+class Number3Service
 {
     /**
      ** Datatable service.
@@ -19,17 +19,23 @@ class Number1Service
      */
     public function datatable($request)
     {
-        $customer = Customer::orderBy('name', 'asc')
+        $product = Product::orderBy('name', 'asc')
             ->get();
 
-        $customer = Datatables::of($customer)
-            ->addColumn('lastTransactionDateCustom', function ($row) {
-                $result = FormatterHelper::formatDate($row->last_transaction_date);
+        $product = Datatables::of($product)
+            ->addColumn('priceCustom', function ($row) {
+                $result = FormatterHelper::formatNumber($row->price);
+
+                return $result;
+            })
+            ->addColumn('totalTransactionCustom', function ($row) {
+                $result = FormatterHelper::formatNumber($row->total_transaction);
 
                 return $result;
             })
             ->rawColumns([
-                'lastTransactionDateCustom',
+                'priceCustom',
+                'totalTransactionCustom',
             ])
             ->make(true);
 
@@ -39,7 +45,7 @@ class Number1Service
         $result = (object) [
             'status' => $status,
             'message' => $message,
-            'customer' => $customer,
+            'product' => $product,
         ];
 
         return $result;

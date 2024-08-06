@@ -41,6 +41,7 @@ class Product extends Model
      */
     protected $appends = [
         'hash_id',
+        'total_transaction',
     ];
 
     /*
@@ -68,6 +69,19 @@ class Product extends Model
     public function getHashIdAttribute()
     {
         return HashHelper::encrypt($this->id);
+    }
+
+    /**
+     ** Get total transaction attribute.
+     *
+     * @return string
+     */
+    public function getTotalTransactionAttribute()
+    {
+        $transaction = Transaction::where('product_id', $this->id)
+            ->count();
+
+        return $transaction;
     }
 
     /*

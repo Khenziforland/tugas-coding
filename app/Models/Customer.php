@@ -41,6 +41,8 @@ class Customer extends Model
      */
     protected $appends = [
         'hash_id',
+        'total_transaction',
+        'last_transaction_date',
     ];
 
     /*
@@ -68,6 +70,33 @@ class Customer extends Model
     public function getHashIdAttribute()
     {
         return HashHelper::encrypt($this->id);
+    }
+
+    /**
+     ** Get total transaction attribute.
+     *
+     * @return string
+     */
+    public function getTotalTransactionAttribute()
+    {
+        $transaction = Transaction::where('customer_id', $this->id)
+            ->count();
+
+        return $transaction;
+    }
+
+    /**
+     ** Get last transaction date attribute.
+     *
+     * @return string
+     */
+    public function getLastTransactionDateAttribute()
+    {
+        $transaction = Transaction::where('customer_id', $this->id)
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        return $transaction->transaction_date;
     }
 
     /*

@@ -7,25 +7,25 @@ use Illuminate\Http\Response;
 
 use App\Http\Controllers\Controller;
 
-use App\Services\Dashboard\Number1Service;
+use App\Services\Dashboard\Number2Service;
 
-class Number1Controller extends Controller
+class Number2Controller extends Controller
 {
     /**
      ** Service instance.
      *
-     * @var Number1Service
+     * @var Number2Service
      */
-    protected $number1Service;
+    protected $number2Service;
 
     /**
      ** Constructor.
      *
-     * @param Number1Service $number1Service
+     * @param Number2Service $number2Service
      */
-    public function __construct(Number1Service $number1Service)
+    public function __construct(Number2Service $number2Service)
     {
-        $this->number1Service = $number1Service;
+        $this->number2Service = $number2Service;
     }
 
     /**
@@ -35,7 +35,7 @@ class Number1Controller extends Controller
      */
     public function index()
     {
-        return view('dashboard.number_1.index');
+        return view('dashboard.number_2.index');
     }
 
     /**
@@ -46,7 +46,7 @@ class Number1Controller extends Controller
      */
     public function datatable(Request $request)
     {
-        $result = $this->number1Service->datatable($request);
+        $result = $this->number2Service->datatable($request);
 
         return $result->customer;
     }

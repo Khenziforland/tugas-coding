@@ -10,7 +10,7 @@ function loadDatatable() {
     serverSide: true,
     order: [],
     ajax: {
-      url: "/dashboard/nomor-1/datatable",
+      url: "/dashboard/nomor-3/datatable",
       data: {},
     },
     columnDefs: [
@@ -33,13 +33,13 @@ function loadDatatable() {
       },
 
       {
-        data: "country",
-        name: "country",
+        data: "priceCustom",
+        name: "priceCustom",
       },
 
       {
-        data: "lastTransactionDateCustom",
-        name: "lastTransactionDateCustom",
+        data: "totalTransactionCustom",
+        name: "totalTransactionCustom",
       },
     ],
   });

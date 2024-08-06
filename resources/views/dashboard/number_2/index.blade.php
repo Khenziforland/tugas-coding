@@ -6,7 +6,7 @@
             <div class="card mb-4 {{ $cardAnimate }}">
                 <div class="card-header d-flex justify-content-between align-items-center pb-0">
                     <h5 class="mb-0">
-                        Tabel Customer Beserta Tanggal Terakhir Transaksi
+                        Tabel Data Jumlah Transaksi Setiap Customer
                     </h5>
                 </div>
 
@@ -27,7 +27,7 @@
                                 </th>
 
                                 <th>
-                                    Tanggal Terakhir Transaksi
+                                    Total Transaksi
                                 </th>
                             </tr>
                         </thead>
@@ -40,5 +40,5 @@
 
 @section('custom_js')
     {{-- * Custom JS --}}
-    <script src="{{ asset('assets/custom/dashboard/number_1/index.js') }}"></script>
+    <script src="{{ asset('assets/custom/dashboard/number_2/index.js') }}"></script>
 @endsection

@@ -6,10 +6,10 @@ use App\Helpers\FormatterHelper;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Helpers\MessageHelper;
-use App\Models\Customer;
-use App\Models\Product;
 
-class Number1Service
+use App\Models\Customer;
+
+class Number2Service
 {
     /**
      ** Datatable service.
@@ -23,13 +23,13 @@ class Number1Service
             ->get();
 
         $customer = Datatables::of($customer)
-            ->addColumn('lastTransactionDateCustom', function ($row) {
-                $result = FormatterHelper::formatDate($row->last_transaction_date);
+            ->addColumn('totalTransactionCustom', function ($row) {
+                $result = FormatterHelper::formatNumber($row->total_transaction);
 
                 return $result;
             })
             ->rawColumns([
-                'lastTransactionDateCustom',
+                'totalTransactionCustom',
             ])
             ->make(true);
 
