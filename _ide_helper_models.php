@@ -23,6 +23,7 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read string $hash_id
  * @property-read string $last_transaction_date
+ * @property-read string $total_nominal_transaction
  * @property-read string $total_transaction
  * @method static \Illuminate\Database\Eloquent\Builder|Customer filter(array $input = [], $filter = null)
  * @method static \Illuminate\Database\Eloquent\Builder|Customer getPaginatedData($paginate = true, $page = 1, $perPage = 20, $sortKey = 'id', $sortOrder = 'asc', $search = null, $withRelations = [], $filters = [], $appends = [])

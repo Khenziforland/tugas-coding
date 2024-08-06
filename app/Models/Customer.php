@@ -42,6 +42,7 @@ class Customer extends Model
     protected $appends = [
         'hash_id',
         'total_transaction',
+        'total_nominal_transaction',
         'last_transaction_date',
     ];
 
@@ -83,6 +84,27 @@ class Customer extends Model
             ->count();
 
         return $transaction;
+    }
+
+    /**
+     ** Get total nominal transaction attribute.
+     *
+     * @return string
+     */
+    public function getTotalNominalTransactionAttribute()
+    {
+        $transaction = Transaction::where('customer_id', $this->id)
+            ->get();
+
+        $result = 0;
+
+        foreach ($transaction as $row) {
+            $product = Product::find($row->product_id);
+
+            $result += $product->price * $row->quantity;
+        }
+
+        return $result;
     }
 
     /**
