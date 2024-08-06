@@ -104,7 +104,7 @@
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
 
-            {{-- @include('partials.sidebar') --}}
+            @include('partials.sidebar')
 
             <div class="layout-page">
 

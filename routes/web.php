@@ -11,7 +11,8 @@
 |
 */
 
-require __DIR__ . '/web/auth/auth.php';
-require __DIR__ . '/web/master-data/barang.php';
+Route::get('/', function () {
+    return "Halo";
+})->name('login');
 
-
+require __DIR__ . '/web/dashboard/number_1.php';
