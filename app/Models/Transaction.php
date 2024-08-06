@@ -43,6 +43,16 @@ class Transaction extends Model
         'hash_id',
     ];
 
+    /**
+     ** The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = [
+        'product',
+        'customer',
+    ];
+
     /*
     |-----------------------------------------------------------------------------
     | HOOK METHOD(s)
@@ -90,4 +100,26 @@ class Transaction extends Model
     |-----------------------------------------------------------------------------
     | // ! write your relational method(s) below, to maintain code readability
     */
+
+    /**
+     ** Relationship with product.
+     *
+     * @return BelongsTo
+     */
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id')
+            ->withTrashed();
+    }
+
+    /**
+     ** Relationship with customer.
+     *
+     * @return BelongsTo
+     */
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id', 'id')
+            ->withTrashed();
+    }
 }

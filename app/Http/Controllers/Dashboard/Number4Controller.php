@@ -48,6 +48,6 @@ class Number4Controller extends Controller
     {
         $result = $this->number4Service->datatable($request);
 
-        return $result->product;
+        return $result->transaction;
     }
 }

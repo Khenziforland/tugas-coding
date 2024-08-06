@@ -95,7 +95,9 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $deleted_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\Customer|null $customer
  * @property-read string $hash_id
+ * @property-read \App\Models\Product|null $product
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction filter(array $input = [], $filter = null)
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction getPaginatedData($paginate = true, $page = 1, $perPage = 20, $sortKey = 'id', $sortOrder = 'asc', $search = null, $withRelations = [], $filters = [], $appends = [])
  * @method static \Illuminate\Database\Eloquent\Builder|Transaction newModelQuery()

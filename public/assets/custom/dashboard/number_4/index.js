@@ -28,13 +28,13 @@ function loadDatatable() {
       },
 
       {
-        data: "laptopSales",
-        name: "laptopSales",
+        data: "customerNameCustom",
+        name: "customerNameCustom",
       },
 
       {
-        data: "customer_name",
-        name: "price",
+        data: "totalSalesCustom",
+        name: "totalSalesCustom",
       },
     ],
   });

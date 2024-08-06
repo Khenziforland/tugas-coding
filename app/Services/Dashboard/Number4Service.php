@@ -6,7 +6,7 @@ use App\Helpers\FormatterHelper;
 use Yajra\DataTables\Facades\DataTables;
 
 use App\Helpers\MessageHelper;
-
+use App\Models\Customer;
 use App\Models\Product;
 use App\Models\Transaction;
 use DB;
@@ -21,18 +21,30 @@ class Number4Service
      */
     public function datatable($request)
     {
-        $laptopSales = Transaction::select('customer_id', DB::raw('COUNT(*) as total_sales'))
-        ->whereHas('product', function ($query) {
-            $query->where('category', 'laptop');
-        })
+        $transaction = Transaction::select('customer_id', DB::raw('count(*) as total_sales'))
+            ->whereHas('product', function ($query) {
+                $query->where('name', 'laptop');
+            })
             ->groupBy('customer_id')
-            ->with('customer:id,name')
             ->get();
 
-        $laptopSales = Datatables::of($laptopSales)
-            ->addColumn('customer_name', function ($row) {
-                return $row->customer->name;
+        dd($transaction);
+
+        $transaction = Datatables::of($transaction)
+            ->addColumn('customerNameCustom', function ($row) {
+                $customer = Customer::find($row->customer_id);
+
+                return $customer->name;
             })
+            ->addColumn('totalSalesCustom', function ($row) {
+                $result = FormatterHelper::formatNumber($row->total_sales);
+
+                return $result;
+            })
+            ->rawColumns([
+                'customerNameCustom',
+                'totalSalesCustom'
+            ])
             ->make(true);
 
         $status = true;
@@ -41,7 +53,7 @@ class Number4Service
         $result = (object) [
             'status' => $status,
             'message' => $message,
-            'laptopSales' => $laptopSales,
+            'transaction' => $transaction,
         ];
 
         return $result;
